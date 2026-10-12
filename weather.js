@@ -1,18 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let url = "https://api.open-meteo.com/v1/forecast?latitude=53.35&longitude=-6.26&current=temperature_2m,relative_humidity_2m,wind_speed_10m";
+let latitude = 19.08;
+let longitude = 72.88;
 
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            let current = data.current;
 
-            document.querySelector("#city").textContent = "Weather in Dublin";
-            document.querySelector("#temperature").textContent = "Temperature: " + current.temperature_2m + "°C";
-            document.querySelector("#humidity").textContent = "Humidity: " + current.relative_humidity_2m + "%";
-            document.querySelector("#wind").textContent = "Wind: " + current.wind_speed_10m + " km/h";
-        })
-        .catch((err) => {
-            document.querySelector("#city").textContent = "Could not load weather";
-            console.log(err);
-        });
+let weather = document.querySelector("#weather");
+
+
+weather.textContent = "Mumbai";
+
+
+let temperature = document.querySelector("#temperature");
+let rain = document.querySelector("#rain");
+let aqi = document.querySelector("#aqi");
+
+
+fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain`)
+   .then((response) => {
+       return response.json();
+   })
+   .then((data) => {
+       temperature.textContent = "Temperature: " + data.current.temperature_2m + "°C";
+       rain.textContent = "Rain: " + data.current.rain + " mm";
+   });
+
+
+
+
+let button = document.querySelector("#changeWeather");
+
+
+button.addEventListener("click", () => {
+
+
+   if (weather.textContent === "Mumbai") {
+
+
+       weather.textContent = "Dublin";
+
+
+       latitude = 53.35;
+       longitude = -6.26;
+
+
+   } else {
+
+
+       weather.textContent = "Mumbai";
+
+
+       latitude = 19.08;
+       longitude = 72.88;
+   }
+
+
+   fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&current=european_aqi`)
+       .then((response) => {
+           return response.json();
+       })
+       .then((data) => {
+           aqi.textContent = "AQI: " + data.current.european_aqi;
+       });
+
+
+   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain`)
+       .then((response) => {
+           return response.json();
+       })
+       .then((data) => {
+           temperature.textContent = "Temperature: " + data.current.temperature_2m + "°C";
+           rain.textContent = "Rain: " + data.current.rain + " mm";
+       });
 });
+
+
+fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&current=european_aqi`)
+   .then((response) => {
+       return response.json();
+   })
+   .then((data) => {
+       aqi.textContent = "AQI: " + data.current.european_aqi;
+   });
