@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
+   <meta charset="UTF-8">
+ <link rel="stylesheet" href="style.css">
+   <title>My Weather App</title>
 </head>
-<body>
-    <h1 id="city">Loading...</h1>
-    <p id="temperature"></p>
-    <p id="humidity"></p>
-    <p id="wind"></p>
 
-    <script src="weather.js"></script>
+
+<body>
+
+
+   <h1>Weather App</h1>
+
+
+   <div class="weather-card">
+       <div id="weather">Loading...</div>
+       <div id="rain"></div>
+       <div id="aqi"></div>
+       <div id="temperature"></div>
+       <button id="changeWeather">Change Weather</button>
+   </div>
+
+
+   <script src="weather.js"></script>
+
+
 </body>
 </html>
