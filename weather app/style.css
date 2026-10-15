@@ -1,0 +1,57 @@
+body {
+   font-family: Helvetica, sans-serif;
+   background: #f4f1ea;
+   color: #1e1e1e;
+   margin: 0;
+   min-height: 100vh;
+
+
+   background-image: url("weather.jpg");
+   background-size: cover;
+   background-position: center;
+
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.weather-card {
+   background: rgba(255,255, 255, 0.25);
+   backdrop-filter: blur(10px);
+   padding: 40px;
+   border-radius: 24px;
+   width: 300px;
+   text-align: center;
+}
+
+
+#weather {
+   font-size: 18px;
+   font-weight: 600;
+   margin-bottom: 20px;
+}
+
+
+
+
+
+
+#rain,
+#aqi {
+   margin: 8px 0;
+}
+
+
+#changeWeather {
+   color: #1e1e1e;
+   background: rgba(255, 255, 255, 0.4);
+   border: none;
+   border-radius: 16px;
+   margin-top: 16px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
