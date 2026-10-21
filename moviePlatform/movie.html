@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Movie Playlist Generator</title>
+<html>
+<head>
+  <title>Movie Generator</title>
+</head>
+<body>
+  <h1>Movie Generator</h1>
+  <p>Pick a mood:</p>
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+  <button onclick="showMovies('Cozy')">Cozy</button>
+  <button onclick="showMovies('Thrilling')">Thrilling</button>
+  <button onclick="showMovies('Funny')">Funny</button>
+  <button onclick="showMovies('Sad')">Sad</button>
 
-    <body>
+  <h2>Your watchlist</h2>
+  <ul id="watchlist"></ul>
 
-        <h1> Movie Playlist Generator</h1>
-        <p>Discover your next movie night</p>
-
-        <button id = "generateButton">Generate Playlist</button>
-        <div id="playlist"></div>
-
-        <script src="movie.js"></script>"
-
-    </body>
+  <script src="movie.js"></script>
+</body>
 </html>
